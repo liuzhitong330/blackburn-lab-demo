@@ -1,0 +1,372 @@
+{
+  "meta": {
+    "title": "Sample history and paired telomere measurements",
+    "dataset": "CRELES, published 2019",
+    "observations": 2229,
+    "participants": 1261,
+    "pairs": 968,
+    "primaryPairs": 967,
+    "flaggedPairs": 1,
+    "units": "Relative telomere-to-single-copy-gene ratio (T/S)",
+    "sampleType": "Leukocyte DNA from whole-blood cell fractions, not isolated PBMC",
+    "freshnessDefinition": "Blood cells stored for less than one YEAR before DNA extraction",
+    "seasonDefinition": "October-December versus all other collection months",
+    "defaultExclusion": "One pair has a negative recorded DNA storage duration. Retained for flagged-record sensitivity; not classified as assay failure.",
+    "displayIds": "Demo-only identifiers. Original study IDs and clinical variables are not included."
+  },
+  "summary": {
+    "all": {
+      "n": 967,
+      "rawMedian": 0.007000000000000006,
+      "adjustedMedian": -0.008998157494432557,
+      "rawMean": 0.009032033071153038,
+      "adjustedMean": -0.008107321799801758,
+      "rawQ1": -0.08630012202262877,
+      "rawQ3": 0.115500807762146,
+      "adjustedQ1": -0.09700278164280768,
+      "adjustedQ3": 0.08574166641235337,
+      "rawDecrease": 468,
+      "adjustedDecrease": 513,
+      "signSwitch": 159
+    },
+    "allIncludingFlagged": {
+      "n": 968,
+      "rawMedian": 0.007000000000000006,
+      "adjustedMedian": -0.00896018807283705,
+      "rawMean": 0.009018873172358046,
+      "adjustedMean": -0.007864661658976452,
+      "rawQ1": -0.08615006101131437,
+      "rawQ3": 0.1149584949016571,
+      "adjustedQ1": -0.09688472640381904,
+      "adjustedQ3": 0.08586041629049493,
+      "rawDecrease": 469,
+      "adjustedDecrease": 513,
+      "signSwitch": 160
+    },
+    "sameLot": {
+      "n": 928,
+      "rawMedian": 0.006128916025161746,
+      "adjustedMedian": -0.008724452212121703,
+      "rawMean": 0.008305278140923068,
+      "adjustedMean": -0.007035209858631329,
+      "rawQ1": -0.08424999999999996,
+      "rawQ3": 0.1112237114906311,
+      "adjustedQ1": -0.09621123765632517,
+      "adjustedQ3": 0.08535416204134627,
+      "rawDecrease": 451,
+      "adjustedDecrease": 490,
+      "signSwitch": 149
+    },
+    "allMatched": {
+      "n": 182,
+      "rawMedian": 0.014939486980438232,
+      "adjustedMedian": -0.011848821534050868,
+      "rawMean": 0.023715351827852015,
+      "adjustedMean": -0.002761204765393283,
+      "rawQ1": -0.05993143510818483,
+      "rawQ3": 0.12975,
+      "adjustedQ1": -0.08702915902137762,
+      "adjustedQ3": 0.10231665174563673,
+      "rawDecrease": 85,
+      "adjustedDecrease": 98,
+      "signSwitch": 31
+    },
+    "differentLot": {
+      "n": 39,
+      "rawMedian": 0.0275055751800537,
+      "adjustedMedian": -0.04873495346175305,
+      "rawMean": 0.026325073462266185,
+      "adjustedMean": -0.03361808798970324,
+      "rawQ1": -0.13748136734962463,
+      "rawQ3": 0.2447091326713562,
+      "adjustedQ1": -0.1412870414011182,
+      "adjustedQ3": 0.12836935544013978,
+      "rawDecrease": 17,
+      "adjustedDecrease": 23,
+      "signSwitch": 10
+    }
+  },
+  "flags": {
+    "lotChanged": 40,
+    "freshCategoryChanged": 487,
+    "seasonChanged": 407,
+    "allMatched": 182
+  },
+  "support": {
+    "overlapMin": 3.8333332538604736,
+    "overlapMax": 5.75,
+    "lots": [
+      {
+        "lot": 2014,
+        "n": 1252,
+        "min": 3.8333332538604736,
+        "max": 9.5,
+        "overlapN": 431,
+        "overlapDistinctValues": 1,
+        "distribution": [
+          {
+            "years": 3.8333332538604736,
+            "n": 431
+          },
+          {
+            "years": 6.666666507720947,
+            "n": 205
+          },
+          {
+            "years": 6.75,
+            "n": 61
+          },
+          {
+            "years": 6.833333492279053,
+            "n": 77
+          },
+          {
+            "years": 6.916666507720947,
+            "n": 88
+          },
+          {
+            "years": 7.0,
+            "n": 60
+          },
+          {
+            "years": 7.083333492279053,
+            "n": 54
+          },
+          {
+            "years": 7.166666507720947,
+            "n": 25
+          },
+          {
+            "years": 7.25,
+            "n": 14
+          },
+          {
+            "years": 7.333333492279053,
+            "n": 12
+          },
+          {
+            "years": 7.416666507720947,
+            "n": 7
+          },
+          {
+            "years": 7.5,
+            "n": 15
+          },
+          {
+            "years": 7.666666507720947,
+            "n": 6
+          },
+          {
+            "years": 7.75,
+            "n": 7
+          },
+          {
+            "years": 7.833333492279053,
+            "n": 1
+          },
+          {
+            "years": 7.916666507720947,
+            "n": 15
+          },
+          {
+            "years": 8.0,
+            "n": 20
+          },
+          {
+            "years": 8.916666984558105,
+            "n": 17
+          },
+          {
+            "years": 9.0,
+            "n": 26
+          },
+          {
+            "years": 9.083333015441895,
+            "n": 35
+          },
+          {
+            "years": 9.166666984558105,
+            "n": 27
+          },
+          {
+            "years": 9.25,
+            "n": 23
+          },
+          {
+            "years": 9.416666984558105,
+            "n": 20
+          },
+          {
+            "years": 9.5,
+            "n": 6
+          }
+        ]
+      },
+      {
+        "lot": 2010,
+        "n": 976,
+        "min": 0.0833333358168602,
+        "max": 5.75,
+        "overlapN": 150,
+        "overlapDistinctValues": 13,
+        "distribution": [
+          {
+            "years": 0.0833333358168602,
+            "n": 274
+          },
+          {
+            "years": 2.25,
+            "n": 8
+          },
+          {
+            "years": 2.3333332538604736,
+            "n": 1
+          },
+          {
+            "years": 2.5833332538604736,
+            "n": 2
+          },
+          {
+            "years": 2.6666667461395264,
+            "n": 2
+          },
+          {
+            "years": 2.9166667461395264,
+            "n": 180
+          },
+          {
+            "years": 3.0,
+            "n": 104
+          },
+          {
+            "years": 3.0833332538604736,
+            "n": 60
+          },
+          {
+            "years": 3.1666667461395264,
+            "n": 33
+          },
+          {
+            "years": 3.25,
+            "n": 45
+          },
+          {
+            "years": 3.3333332538604736,
+            "n": 51
+          },
+          {
+            "years": 3.4166667461395264,
+            "n": 21
+          },
+          {
+            "years": 3.5,
+            "n": 16
+          },
+          {
+            "years": 3.5833332538604736,
+            "n": 14
+          },
+          {
+            "years": 3.6666667461395264,
+            "n": 9
+          },
+          {
+            "years": 3.75,
+            "n": 6
+          },
+          {
+            "years": 3.9166667461395264,
+            "n": 9
+          },
+          {
+            "years": 4.0,
+            "n": 2
+          },
+          {
+            "years": 4.083333492279053,
+            "n": 7
+          },
+          {
+            "years": 4.166666507720947,
+            "n": 8
+          },
+          {
+            "years": 4.25,
+            "n": 18
+          },
+          {
+            "years": 4.833333492279053,
+            "n": 1
+          },
+          {
+            "years": 5.166666507720947,
+            "n": 6
+          },
+          {
+            "years": 5.25,
+            "n": 21
+          },
+          {
+            "years": 5.333333492279053,
+            "n": 36
+          },
+          {
+            "years": 5.416666507720947,
+            "n": 10
+          },
+          {
+            "years": 5.5,
+            "n": 15
+          },
+          {
+            "years": 5.666666507720947,
+            "n": 16
+          },
+          {
+            "years": 5.75,
+            "n": 1
+          }
+        ]
+      }
+    ],
+    "note": "Overlapping ranges do not establish comparable samples. All 2014 observations in the shared range have one recorded storage value; no assay-year causal effect is identified."
+  },
+  "sources": [
+    {
+      "title": "Rosero-Bixby et al. (2019), PLOS ONE",
+      "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0223766",
+      "role": "Study design and provenance"
+    },
+    {
+      "title": "S1 Data: public participant-level measurements",
+      "url": "https://doi.org/10.1371/journal.pone.0223766.s001",
+      "role": "Raw data",
+      "sha256": "6ba6737bce46c956fd59162cf298018e9f6ff9c3181a6f0ce74869d7ca911575"
+    },
+    {
+      "title": "S2 Document: published normalization equations",
+      "url": "https://doi.org/10.1371/journal.pone.0223766.s003",
+      "role": "Labeled sensitivity comparison",
+      "sha256": "0384d01275b59a989b9e629529cd93e411660b06cfc249e889f6cbee17d652f5"
+    },
+    {
+      "title": "Blackburn Telomere Core",
+      "url": "https://blackburnlab.ucsf.edu/telomere-core-services-resources",
+      "role": "Role relevance and precision guidance"
+    }
+  ],
+  "limitations": [
+    "Descriptive secondary analysis, not a refit of the original weighted random-effects models or their multiple imputations.",
+    "Published normalization is a sensitivity lens, not ground truth, a newly validated correction or a causal storage effect.",
+    "Matching categories is not a quality gate. It does not equalize storage duration or eliminate selection and biological differences.",
+    "No raw technical replicates, telomerase activity, flow data or processing timestamps are available. Do not infer ICC or PBMC handling effects.",
+    "Change means wave 2 minus wave 1 in relative T/S, not base pairs, biological age, diagnosis or treatment response."
+  ],
+  "weightedSensitivity": {
+    "rawMean": 0.032612135704438786,
+    "adjustedMean": 0.0024580184984982706,
+    "rawDecreaseProportion": 0.4144039667406342,
+    "adjustedDecreaseProportion": 0.5169883696294562,
+    "note": "Baseline-weighted descriptive sensitivity only; not a full survey-design estimate or confidence interval."
+  }
+}

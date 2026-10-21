@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Before interpreting telomere change: a reproducible specimen-history audit of the Blackburn-assayed CRELES cohort, prepared by Cathy Liu.">
+  <title>Exploratory Analyses Inspired by the Blackburn Lab</title>
+  <link rel="stylesheet" href="styles.css?v=20261021">
+</head>
+<body>
+  <main class="page">
+    <h1>Exploratory Analyses Inspired by the Blackburn Lab</h1>
+    <div class="byline">
+      Cathy Liu · Biotechnology · <a href="mailto:cathyliu014@gmail.com">cathyliu014@gmail.com</a><br>
+      Prepared for the Blackburn Lab, UCSF<br>
+      Personal exploratory project, October 2026
+    </div>
+
+    <nav class="section-nav" aria-label="Demo sections">
+      <a href="#motivation">Motivation</a>
+      <a href="#a1">Sample history</a>
+      <a href="#a2">Paired changes</a>
+      <a href="#relevance">Relevance</a>
+    </nav>
+
+    <p>Your lab connects telomere maintenance to human health through clinical studies and careful molecular measurements. I was drawn to the practical question underneath a longitudinal result: did the biological sample change, or did the conditions under which we measured it change?</p>
+    <p>I built a specimen-history audit of the public CRELES data, whose telomere assays were performed in the Blackburn laboratory. <strong>159 of 967 paired changes switch direction under the paper's adjustment.</strong> That does not tell us which representation is true. It tells us why the sample record belongs beside the result.</p>
+
+    <hr id="motivation">
+    <section aria-labelledby="how-heading">
+      <h2 id="how-heading">How it works</h2>
+      <p>Before interpreting telomere change, inspect storage histories and then compare the same person's change in deposited T/S with values reconstructed from the paper's normalization equations. T/S is a relative qPCR ratio, not base pairs. This is an unweighted descriptive audit, not a new causal analysis or a biological-age score.</p>
+    </section>
+
+    <hr id="a1">
+    <section aria-labelledby="analysis-one-heading">
+      <h2 id="analysis-one-heading">Analysis 1 — Is there a fair storage comparison?</h2>
+      <div class="experiment">
+        <div class="exp-label">Before interpreting telomere change</div>
+        <div class="exp-title">Overlapping ranges can hide different sample histories.</div>
+        <p>Inspect the actual observations behind a between-lot comparison. Restricting to a shared range does not make the samples exchangeable.</p>
+      </div>
+      <div class="panel">
+        <div class="control-line">
+          <label for="storage-view">Storage window</label>
+          <select id="storage-view">
+            <option value="all">All non-negative recorded durations</option>
+            <option value="overlap">Only the shared numerical range</option>
+          </select>
+        </div>
+        <svg id="support-viz" class="viz" viewBox="0 0 600 300" role="img" aria-labelledby="support-title support-description">
+          <title id="support-title">DNA storage coverage by assay lot</title>
+          <desc id="support-description">The diagram loads from the public CRELES data.</desc>
+        </svg>
+        <div class="readout" id="support-readout" aria-live="polite">Loading the specimen-history audit…</div>
+        <figcaption id="support-caption">Each stem represents an exact recorded duration; its height indicates observation count. Shading marks the shared numerical range. One negative recorded duration is flagged, not replaced.</figcaption>
+        <p class="value-readout"><strong>What this lets the lab do:</strong> locate missing comparison conditions before choosing bridge aliquots or fitting a storage-effect model.</p>
+        <p class="value-readout"><strong>Where Cathy adds value:</strong> connect specimen records to an explicit analytical check, with a reproducible audit trail.</p>
+      </div>
+      <div class="metric-row">
+        <div class="metric"><span class="metric-val" id="metric-one">—</span><span class="metric-desc">deposited observations</span></div>
+        <div class="metric"><span class="metric-val" id="metric-two">—</span><span class="metric-desc">people with two visits</span></div>
+        <div class="metric"><span class="metric-val" id="metric-three">—</span><span class="metric-desc" id="metric-three-label">observations in selected window</span></div>
+      </div>
+    </section>
+
+    <hr id="a2">
+    <section aria-labelledby="analysis-two-heading">
+      <h2 id="analysis-two-heading">Analysis 2 — Which changes depend on the representation?</h2>
+      <div class="experiment">
+        <div class="exp-label">Paired sensitivity analysis</div>
+        <div class="exp-title">Same assay lot is not the same sample history.</div>
+      </div>
+      <div class="panel">
+        <div class="control-line">
+          <label for="pair-cohort">Compare people with</label>
+          <select id="pair-cohort">
+            <option value="all">All paired observations</option>
+            <option value="sameLot">The same assay lot at both visits</option>
+            <option value="allMatched">The same lot, freshness category and season category</option>
+          </select>
+        </div>
+        <label class="check-line"><input type="checkbox" id="include-flagged"> Include the one pair with a negative recorded storage duration (flagged sensitivity check)</label>
+        <div class="control-line">
+          <label for="plot-range">Plot range</label>
+          <select id="plot-range">
+            <option value="full">Full range</option>
+            <option value="close">Magnify ±0.25 T/S — visual zoom only</option>
+          </select>
+        </div>
+        <svg id="pair-viz" class="viz" viewBox="0 0 600 410" role="img" aria-labelledby="pair-title pair-description">
+          <title id="pair-title">Change in deposited versus paper-normalized T/S</title>
+          <desc id="pair-description">Every dot is one person with two visits. Teal marks indicate opposite signs, not invalid measurements.</desc>
+        </svg>
+        <p id="plot-visibility" class="small-note"></p>
+        <div class="readout" id="pair-readout" aria-live="polite"></div>
+        <figcaption>Horizontal: visit 2 minus visit 1 in deposited T/S. Vertical: the same difference reconstructed using the published S2 equations. The diagonal is agreement; teal dots have opposite signs. Changes are not annualized. A sign is not a verified biological change.</figcaption>
+        <div class="control-line pair-control">
+          <label for="pair-select">Inspect one person</label>
+          <select id="pair-select"></select>
+        </div>
+        <div id="pair-detail" class="pair-detail" aria-live="polite"></div>
+        <div class="action-line">
+          <button type="button" id="download-pairs" class="text-button">Download this comparison as CSV</button>
+          <a href="analysis/reproduce.py">Reproduction script</a>
+        </div>
+        <p class="value-readout"><strong>What this lets the lab do:</strong> see which paired conclusions are representation-sensitive and identify records needed to interpret them.</p>
+        <p class="value-readout"><strong>Where Cathy adds value:</strong> turn analysis choices into inspectable sample-level evidence and a documented follow-up question.</p>
+      </div>
+      <p class="small-note">Matching three categories does not match storage duration, cell composition or every pre-analytical condition. A sign switch does not prove an assay error. These are unweighted descriptive summaries, not a re-estimation of the paper's inferential models.</p>
+    </section>
+
+    <hr id="relevance">
+    <section aria-labelledby="relevance-heading">
+      <h2 id="relevance-heading">Why this matters for the lab</h2>
+      <p>The next step I would discuss is a balanced bridge-aliquot study: retain matched aliquots from an earlier collection and re-assay them alongside the next wave, with shared controls. Record extraction, storage, transport and assay history separately. This can help distinguish run-to-run shifts from a change in the specimen; the present observational audit cannot separate them causally.</p>
+      <details class="detail-block">
+        <summary>A reusable next-wave record</summary>
+        <p>For a future PBMC study, extend the ledger to participant and visit keys, draw and processing timestamps, collection tube, viable cell count, aliquot ID, transfer temperatures/times, extraction method, storage/freeze–thaw history, assay lot, control identity and repeat measurements. Preserve missing values and record deviations for review; do not invent acceptance limits.</p>
+        <p>Compare repeated measurements from the same aliquot and independent preparations. A shared-control shift would motivate run review; a preparation-dependent shift would motivate a handling investigation. Interpretation still needs the assay team's validation and the study statistician.</p>
+        <a href="analysis/input-schema.json">Download the proposed input schema</a>
+      </details>
+
+      <h2>What I would bring</h2>
+      <p>My experience combines clinical blood-sample preparation, analytical-method validation and research-data analysis. I would bring that habit of checking the sample record alongside the result, while learning your study-specific PBMC and telomere workflows. This assistant-supported exploratory project shows the questions I would bring to the team; it is not evidence that I have already performed those assays.</p>
+
+      <h2>Methods note</h2>
+      <p class="methods-note">Processed-data reanalysis of <a href="https://doi.org/10.1371/journal.pone.0223766">Rosero-Bixby et al., PLOS ONE (2019)</a>, using its <a href="https://doi.org/10.1371/journal.pone.0223766.s001">S1 data</a> and <a href="https://doi.org/10.1371/journal.pone.0223766.s003">S2 normalization description</a>. The source is a population cohort of older Costa Rican adults with mixed-leukocyte DNA—not the lab's current PBMC study. No clinical outcome, raw qPCR well data or telomerase readout is inferred here.</p>
+      <details class="detail-block">
+        <summary>Analysis choices, uncertainty and reproducibility</summary>
+        <div id="methods-details"><p>The complete analysis record accompanies the downloadable reproduction script.</p></div>
+        <p>The source normalization extrapolates to a reference condition without direct support in every assay lot. It is shown to expose assumption-dependence, not to recover a true biological value. Different observed changes can also reflect biological variation or unmeasured conditions.</p>
+        <p>No verified relevant Blackburn Lab GitHub repository was found. This project uses the openly deposited study data and shares its own analysis. <a href="https://github.com/liuzhitong330/blackburn-lab-demo">Source code and reproduction instructions</a>.</p>
+      </details>
+    </section>
+
+    <footer>
+      Cathy Liu · <a href="mailto:cathyliu014@gmail.com">cathyliu014@gmail.com</a> · <a href="tel:+14152163799">415-216-3799</a><br>
+      Personal exploratory analysis · not a clinical or validated laboratory tool
+    </footer>
+  </main>
+  <script src="data.js?v=20261021"></script>
+  <script src="app.js?v=20261021"></script>
+</body>
+</html>
